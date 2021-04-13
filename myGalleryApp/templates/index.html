@@ -1,0 +1,23 @@
+{%extends 'base.html'%}
+
+{% block content %}
+
+        <div class="container">
+            <h1>Hello World</h1>
+            <div class="row">
+                {% for image in aristote %}
+                    <div class="col-4">
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="{{image.image.url}}" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">{{image.img_title}}</h5>
+                                <p class="card-text">{{image.img_description}}</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+{% endblock %}
