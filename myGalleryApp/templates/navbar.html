@@ -1,8 +1,29 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
-    <a class="navbar-brand" href="{% url 'index' %}">Gallery</a>
-      <form class="form-inline" role="search" action="{% url 'search_results' %}">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search_image">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
+  <a class="navbar-brand" href="{% url 'index' %}">Gallery</a>
+  <form class="form-inline" role="search" action="{% url 'search_results' %}">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search_image">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+  <div class="col-sm-6 col-md-6" >
+    {% if user.is_authenticated %}
+    <ul>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false" style="color: white;">Account
+                  <span class="caret"></span>
+              </a>
+        <ul class="dropdown-menu" role="menu" >
+          <li>
+            <a href="/accounts/password/change">Change Password</a>
+          </li>
+          <li>
+            <a href="/logout">Logout</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    {% else %}
+      <a class='btn btn-default' href="{% url 'login_link' %}" style="color: white;">Login</a>
+
+    {% endif %}
+  </div>
 </nav>
